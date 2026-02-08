@@ -32,8 +32,8 @@ body {
 .bdHat {
   width: 200px;
   height: auto;
-  top: -1%;
-  left: 9%;
+  top: 7%;
+  right: 20%;
   transform: rotate(-5deg);
   position: absolute;
   z-index: 4;
@@ -42,7 +42,7 @@ body {
   position: absolute;
   width: 270px;
   height: auto;
-  right: -10px;
+  left: -25px;
   top: 30px;
 }
 .jessImg {
@@ -51,14 +51,14 @@ body {
   top: 150px;
   left: 50px;
   position: absolute;
-  width: 260px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   z-index: 1;
 }
 .happy {
   text-align: center;
-  left: 10%;
-  top: 84%;
+  left: 20%;
+  top: 85%;
   font-size: 1.5em;
   font-family: Tahoma, sans-serif;
   color: hotpink;

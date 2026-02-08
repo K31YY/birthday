@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday To Me</title>
+    <title>Happy Birthday To Maacutties gf><❤️</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -20,25 +20,36 @@
             alt="bdHat"
             class="bdHat"
           />
-          <img src="me.png" alt="nak" class="jessImg" />
-          <h2 class="happy">Tap to open!!</h2>
+          <img src="beb.png" alt="nak" class="jessImg" />
+          <h2 class="happy">Happy Birthday!!</h2>
         </div>
         <div class="cardInside">
           <h3 class="back">HAPPY BIRTHDAY!</h3>
-          <p>Dear me,</p>
+          <p>Dear Maacutties gf><❤️,</p>
           <p>
-            Happy 21st Birthday to me! These twenty one years have been a
-            remarkable journey of watching myself grow into the incredible person
-            I am today. My presence brings so much happiness into my life,
-            and I can't wait to see all the amazing adventures and successes
-            that lie ahead for me in adulthood. Cheers to a bright future
-            filled with love, laughter, and dreams fulfilled! 🎉🎂❤️🥂
+            Happy 21st Birthday to you Maacutties gf><❤️ ! These twenty one years have been a
+            remarkable journey of watching your self grow into the incredible person
+            for today.  Wishing you the happiest birthday! Your care, wisdom, 
+            and steady presence have always made you feel like the heart of our 
+            group—a true mother figure we all look up to and rely on. Thank you for being you. 
+            Here's to a year filled with love, laughter, and everything you’ve been dreaming of. 🎉🎂❤️🥂
           </p>
         </div>
       </div>
     </div>
-    <audio autoplay loop>
+    <audio id="myAudio" autoplay loop>
       <source src="happy-birthday.mp3" type="audio/mpeg" />
     </audio>
+
+    <script>
+      document.addEventListener('click', function() {
+        var audio = document.getElementById('myAudio');
+        if (audio) {
+          audio.play().catch(e => {
+            console.log("Autoplay prevented:", e);
+          });
+        }
+      }, { once: true }); // Use { once: true } to ensure the event listener is removed after the first click
+    </script>
   </body>
 </html>
