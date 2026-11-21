@@ -1,55 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday To Maacutties gf><❤️</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Happy 21st Birthday, Maacutties</title>
+    <meta
+      name="description"
+      content="A little birthday card, made with love, for Maacutties."
+    />
+    <meta name="theme-color" content="#fbf1f2" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 27S4 19.5 4 11.8C4 7.5 7.2 4.5 11 4.5c2.1 0 4 1 5 2.6 1-1.6 2.9-2.6 5-2.6 3.8 0 7 3 7 7.3C28 19.5 16 27 16 27z' fill='%23c4738b'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <div class="body">
-      <div class="birthdayCard">
-        <div class="cardFront">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/6917/6917462.png"
-            class="balloons"
-            alt="balloons"
-          />
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/4392/4392520.png"
-            alt="bdHat"
-            class="bdHat"
-          />
-          <img src="beb.png" alt="nak" class="jessImg" />
-          <h2 class="happy">Happy Birthday!!</h2>
-        </div>
-        <div class="cardInside">
-          <h3 class="back">HAPPY BIRTHDAY!</h3>
-          <p>Dear Maacutties gf><💖🌷,</p>
-          <p>
-            Happy 21st Birthday to you Maacutties gf><💖🌷 ! These twenty one years have been a
-            remarkable journey of watching your self grow into the incredible person
-            for today.  Wishing you the happiest birthday! Your care, wisdom, 
-            and steady presence have always made you feel like the heart of our 
-            group—a true mother figure we all look up to and rely on. Thank you for being you. 
-            Here's to a year filled with love, laughter, and everything you’ve been dreaming of. 🎉🎂💖🌷
-          </p>
-        </div>
-      </div>
+    <div class="ambient" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
     </div>
-    <audio id="myAudio" autoplay loop>
-      <source src="happy-birthday.mp3" type="audio/mpeg" />
-    </audio>
+
+    <main class="stage">
+      <h1 class="sr-only">Happy 21st birthday, Maacutties</h1>
+
+      <div class="card" id="card">
+        <!-- Closed state -->
+        <button
+          class="cover"
+          id="openBtn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="letter"
+        >
+          <span class="cover__sheen"></span>
+          <span class="cover__top">
+            <span class="cover__eyebrow">A card for you</span>
+          </span>
+          <span class="cover__center">
+            <span class="cover__photo">
+              <img src="nak.png" alt="" />
+            </span>
+            <span class="cover__title">Happy Birthday</span>
+            <span class="cover__name">Maacutties</span>
+          </span>
+          <span class="cover__bottom">
+            <span class="cover__rule" aria-hidden="true">
+              <span></span>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 21s-7.5-4.7-9.3-9A5.3 5.3 0 0 1 12 6.5 5.3 5.3 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9Z"
+                />
+              </svg>
+              <span></span>
+            </span>
+            <span class="cover__hint">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 21s-7.5-4.7-9.3-9A5.3 5.3 0 0 1 12 6.5 5.3 5.3 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9Z"
+                />
+              </svg>
+              Tap to open
+            </span>
+          </span>
+        </button>
+
+        <!-- Open state -->
+        <article class="letter" id="letter" aria-hidden="true">
+          <button
+            class="letter__close"
+            id="closeBtn"
+            type="button"
+            aria-label="Close card"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+
+          <div class="letter__scroll">
+            <p class="letter__eyebrow">Happy 21st Birthday</p>
+            <h2 class="letter__name">Maacutties</h2>
+
+            <div class="divider" aria-hidden="true">
+              <span></span>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 21s-7.5-4.7-9.3-9A5.3 5.3 0 0 1 12 6.5 5.3 5.3 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9Z"
+                />
+              </svg>
+              <span></span>
+            </div>
+
+            <p class="letter__greeting">Dear Maacutties,</p>
+
+            <p>
+              Happy 21st birthday. These twenty-one years have been a
+              remarkable journey &mdash; watching you grow into the incredible
+              person you are today.
+            </p>
+
+            <p>
+              Your care, your wisdom, and your steady presence have always made
+              you the heart of every group you walk into: a true mother figure
+              we all look up to and lean on. Thank you for being exactly who you
+              are.
+            </p>
+
+            <p>
+              Here&rsquo;s to a year filled with love, laughter, and everything
+              you&rsquo;ve been dreaming of.
+            </p>
+
+            <div class="letter__sign">
+              <img src="me.png" alt="" class="letter__sign-avatar" />
+              <span class="letter__sign-text">Always yours</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="stage__caption">sokhy khoeurt &middot; November 22</p>
+    </main>
+
+    <button
+      class="music"
+      id="musicBtn"
+      type="button"
+      aria-pressed="false"
+      aria-label="Play background music"
+    >
+      <svg class="music__icon music__icon--play" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5.5v13l11-6.5-11-6.5Z" />
+      </svg>
+      <svg class="music__icon music__icon--pause" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 5v14M15 5v14" />
+      </svg>
+    </button>
+
+    <audio id="audio" src="happy-birthday.mp3" loop preload="auto"></audio>
 
     <script>
-      document.addEventListener('click', function() {
-        var audio = document.getElementById('myAudio');
-        if (audio) {
-          audio.play().catch(e => {
-            console.log("Autoplay prevented:", e);
-          });
+      (function () {
+        var card = document.getElementById('card');
+        var openBtn = document.getElementById('openBtn');
+        var closeBtn = document.getElementById('closeBtn');
+        var letter = document.getElementById('letter');
+        var audio = document.getElementById('audio');
+        var musicBtn = document.getElementById('musicBtn');
+        var musicStarted = false;
+
+        function setOpen(isOpen) {
+          card.classList.toggle('is-open', isOpen);
+          openBtn.setAttribute('aria-expanded', String(isOpen));
+          letter.setAttribute('aria-hidden', String(!isOpen));
+          letter.inert = !isOpen;
+          if (isOpen) {
+            startMusic();
+            closeBtn.focus({ preventScroll: true });
+          } else {
+            openBtn.focus({ preventScroll: true });
+          }
         }
-      }, { once: true }); // Use { once: true } to ensure the event listener is removed after the first click
+
+        function setMusicState(playing) {
+          musicBtn.setAttribute('aria-pressed', String(playing));
+          musicBtn.setAttribute(
+            'aria-label',
+            playing ? 'Pause background music' : 'Play background music'
+          );
+        }
+
+        function startMusic() {
+          if (musicStarted) return;
+          var attempt = audio.play();
+          if (attempt && typeof attempt.then === 'function') {
+            attempt
+              .then(function () {
+                musicStarted = true;
+                setMusicState(true);
+              })
+              .catch(function () {
+                setMusicState(false);
+              });
+          }
+        }
+
+        openBtn.addEventListener('click', function () {
+          setOpen(true);
+        });
+
+        closeBtn.addEventListener('click', function () {
+          setOpen(false);
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && card.classList.contains('is-open')) {
+            setOpen(false);
+          }
+        });
+
+        musicBtn.addEventListener('click', function () {
+          if (audio.paused) {
+            audio.play().then(function () {
+              musicStarted = true;
+              setMusicState(true);
+            }).catch(function () {
+              setMusicState(false);
+            });
+          } else {
+            audio.pause();
+            setMusicState(false);
+          }
+        });
+
+        audio.addEventListener('play', function () {
+          setMusicState(true);
+        });
+        audio.addEventListener('pause', function () {
+          setMusicState(false);
+        });
+
+        setMusicState(false);
+        letter.inert = true;
+      })();
     </script>
   </body>
 </html>
