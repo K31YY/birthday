@@ -96,7 +96,7 @@ user_pref("services.settings.main.url-classifier-skip-urls.last_check", 17952375
 user_pref("services.settings.main.url-parser-default-unknown-schemes-interventions.last_check", 1795237545);
 user_pref("services.settings.main.urlbar-persisted-search-terms.last_check", 1795237545);
 user_pref("services.settings.main.websites-with-shared-credential-backends.last_check", 1795237545);
-user_pref("toolkit.startup.last_success", 1795237718);
+user_pref("toolkit.startup.last_success", 1795253530);
 user_pref("toolkit.telemetry.cachedClientID", "fad7a05f-c5c4-4a39-a886-5616a0d5672b");
 user_pref("toolkit.telemetry.cachedProfileGroupID", "d06fcdba-a970-48ff-a7a7-5e616698c01c");
 user_pref("toolkit.telemetry.previousBuildID", "20261110113206");

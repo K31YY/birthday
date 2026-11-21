@@ -48,7 +48,7 @@
             <span class="cover__photo">
               <img src="isntkhy.png" alt="" />
             </span>
-            <span class="cover__title">Happy Birthday</span>
+            <span class="cover__title">Enjoy my day</span>
             <span class="cover__name">Young billionaires</span>
           </span>
           <span class="cover__bottom">
@@ -120,6 +120,40 @@
               <img src="me.png" alt="" class="letter__sign-avatar" />
               <span class="letter__sign-text">Always yours</span>
             </div>
+
+            <section class="gift" aria-label="A little thank you">
+              <span class="gift__eyebrow">A little something</span>
+
+              <a
+                class="gift__qr"
+                href="aba.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open the full size ABA KHQR code"
+              >
+                <img
+                  src="aba.png"
+                  alt="ABA Bank KHQR code for Sokhy Khoeurt"
+                  loading="lazy"
+                />
+              </a>
+
+              <div class="gift__thanks">
+                <span>Thank you</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 21s-7.5-4.7-9.3-9A5.3 5.3 0 0 1 12 6.5 5.3 5.3 0 0 1 21.3 12c-1.8 4.3-9.3 9-9.3 9Z"
+                  />
+                </svg>
+              </div>
+
+              <span class="gift__note">
+                For every wish, every message, and every little treat &mdash;
+                you made this day feel warmer.
+              </span>
+
+              <span class="gift__hint">Tap the code to enlarge</span>
+            </section>
           </div>
         </article>
       </div>
@@ -227,6 +261,33 @@
 
         setMusicState(false);
         letter.inert = true;
+      })();
+    </script>
+
+    <script>
+      /* Gift block fades up the first time it scrolls into view.
+         Kept separate so the card logic above stays untouched. */
+      (function () {
+        var gift = document.querySelector('.gift');
+        var scroller = document.querySelector('.letter__scroll');
+
+        if (!gift || !scroller || !('IntersectionObserver' in window)) return;
+
+        gift.classList.add('gift--pending');
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              gift.classList.remove('gift--pending');
+              gift.classList.add('gift--revealed');
+              observer.disconnect();
+            });
+          },
+          { root: scroller, threshold: 0.12 }
+        );
+
+        observer.observe(gift);
       })();
     </script>
   </body>

@@ -895,3 +895,166 @@ img {
     right: 10px;
   }
 }
+
+/* --------------------------------------------------------------------------
+   Gift — QR code & thank you
+   Appended block: nothing above this line was altered.
+   -------------------------------------------------------------------------- */
+
+.gift {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+  padding-top: 1.4rem;
+  text-align: center;
+  border-top: 1px solid rgba(176, 92, 119, 0.14);
+}
+
+.gift--pending {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.gift--revealed {
+  animation: gift-rise 0.75s var(--ease-out) both;
+}
+
+@keyframes gift-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gift__eyebrow {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rose-600);
+}
+
+.gift__qr {
+  position: relative;
+  display: block;
+  width: min(100%, 250px);
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid rgba(176, 92, 119, 0.18);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Soft gold halo that breathes around the code. */
+.gift__qr::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 20px;
+  border: 1px solid rgba(200, 168, 107, 0.55);
+  pointer-events: none;
+  animation: gift-halo 3.4s ease-in-out infinite;
+}
+
+@keyframes gift-halo {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.018);
+  }
+}
+
+.gift__qr img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.gift__qr:focus-visible {
+  outline: 2px solid var(--rose-600);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .gift__qr:hover {
+    transform: translateY(-3px) scale(1.015);
+    border-color: var(--rose-300);
+    box-shadow: 0 22px 40px -22px rgba(96, 52, 68, 0.5);
+  }
+}
+
+.gift__thanks {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 5.2vw, 1.5rem);
+  line-height: 1.2;
+  color: var(--rose-700);
+}
+
+.gift__thanks svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+  fill: var(--rose-400);
+  animation: gift-beat 2.6s ease-in-out infinite;
+}
+
+@keyframes gift-beat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  12% {
+    transform: scale(1.22);
+  }
+  24% {
+    transform: scale(1);
+  }
+  36% {
+    transform: scale(1.14);
+  }
+}
+
+.gift__note {
+  max-width: 30ch;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+
+.gift__hint {
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* Landscape phones — keep the scan target reachable without scrolling far. */
+@media (max-height: 460px) {
+  .gift {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .gift__qr {
+    width: min(100%, 200px);
+  }
+}
