@@ -28,10 +28,20 @@
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-spring: cubic-bezier(0.34, 1.4, 0.55, 1);
 
+  /* A single viewport unit. Upgraded to the *small* viewport further down so
+     collapsing mobile browser toolbars can never cover the card. */
+  --vh: 1vh;
+
   --font-display: "Playfair Display", "Iowan Old Style", Georgia,
     "Times New Roman", serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
+}
+
+@supports (height: 100svh) {
+  :root {
+    --vh: 1svh;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -44,13 +54,16 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   height: 100%;
+  /* Stops iOS from inflating text when the phone is turned sideways. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100%;
   font-family: var(--font-body);
   color: var(--ink);
   background-color: var(--rose-50);
@@ -208,11 +221,13 @@ img {
 .stage {
   position: relative;
   z-index: 1;
-  min-height: 100%;
+  min-height: calc(100 * var(--vh));
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* `safe` lets tall content scroll instead of being cut off at the top. */
+  justify-content: safe center;
   gap: clamp(1.5rem, 4vh, 2.5rem);
   padding: clamp(1.5rem, 5vh, 3rem) 1.25rem;
 }
@@ -232,9 +247,11 @@ img {
 
 .card {
   position: relative;
-  width: min(90vw, 420px);
-  height: min(78vh, 594px);
-  min-height: 480px;
+  /* Height drives the size and the width follows the card's portrait ratio,
+     so the whole card fits inside any viewport without spilling over. */
+  --card-height: min(calc(78 * var(--vh)), 594px);
+  width: min(90vw, 420px, calc(var(--card-height) * 0.707));
+  height: var(--card-height);
   perspective: 2200px;
   transition: transform 0.7s var(--ease-out);
 }
@@ -333,7 +350,7 @@ img {
 .cover__photo {
   position: relative;
   display: block;
-  width: min(62%, 205px);
+  width: min(62%, 205px, calc(32 * var(--vh)));
   aspect-ratio: 1;
   border-radius: 50%;
   padding: 5px;
@@ -776,15 +793,44 @@ img {
    Small screens
    -------------------------------------------------------------------------- */
 
+/* Short viewports — landscape phones, small laptop / split windows. */
 @media (max-height: 700px) {
   .card {
-    height: min(82vh, 540px);
-    min-height: 430px;
+    --card-height: min(calc(82 * var(--vh)), 540px);
   }
 
   .cover__photo {
-    width: min(50%, 158px);
+    width: min(50%, 158px, calc(32 * var(--vh)));
     margin-bottom: 0.85rem;
+  }
+}
+
+/* Narrow screens — the caption has to clear the floating music button. */
+@media (max-width: 560px) {
+  .stage {
+    gap: 1rem;
+    padding-bottom: 4.25rem;
+  }
+
+  .card {
+    --card-height: min(calc(74 * var(--vh)), 594px);
+  }
+}
+
+/* Keeps the letter heading clear of the close button on phone widths.
+   (Selectors are doubled up because `.letter p` sets the type size.) */
+@media (max-width: 480px) {
+  .letter p.letter__eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+  }
+}
+
+/* On the smallest phones the close button shares the heading row, so the
+   heading drops below it instead of colliding with it. */
+@media (max-width: 360px) {
+  .letter p.letter__eyebrow {
+    margin-top: 1.75rem;
   }
 }
 
@@ -795,5 +841,57 @@ img {
 
   .letter__scroll {
     padding: 1.5rem 1.25rem;
+  }
+}
+
+/* Very short viewports — phones lying on their side. */
+@media (max-height: 460px) {
+  .stage {
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .cover {
+    gap: 0.5rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .cover__photo {
+    width: min(40%, 110px, calc(28 * var(--vh)));
+    margin-bottom: 0.6rem;
+  }
+
+  .cover__bottom {
+    gap: 0.6rem;
+  }
+
+  .cover__hint {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.65rem;
+  }
+
+  /* The card is only ~200px wide here: keep every line on one line. */
+  .cover__title {
+    font-size: 1.15rem;
+  }
+
+  .letter__scroll {
+    padding: 1.25rem 1rem;
+  }
+
+  .letter p.letter__eyebrow {
+    margin-top: 1.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+  }
+
+  .letter__name {
+    font-size: 1.3rem;
+  }
+
+  .letter__close {
+    top: 10px;
+    right: 10px;
   }
 }
